@@ -1,0 +1,161 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart.js con Vite</title>
+  <script type="module" src="/src/main.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      margin: 0;
+      padding: 30px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      background: #fafafa;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    .campo {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid #e2e2e2;
+      border-radius: 30px;
+      font-size: 17px;
+      box-sizing: border-box;
+    }
+
+    .colores {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .colores label {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin: 0;
+      cursor: pointer;
+      font-size: 17px;
+      color: #333;
+    }
+
+    input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: black;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    .grafico {
+      border-top: 1px solid #ddd;
+      margin-top: 30px;
+      padding-top: 25px;
+    }
+
+    .canvas-container {
+      max-width: 600px;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h2>Configuración del gráfico</h2>
+
+    <form id="chartForm">
+
+      <div class="campo">
+        <label for="chartTitle">Nombre del gráfico</label>
+        <input type="text" id="chartTitle" value="Número de votos">
+      </div>
+
+      <div class="campo">
+        <label>Color de las barras</label>
+
+        <div class="colores">
+          <label>
+            <input type="radio" name="barColor" value="blue">
+            Azul
+          </label>
+
+          <label>
+            <input type="radio" name="barColor" value="red">
+            Rojo
+          </label>
+
+          <label>
+            <input type="radio" name="barColor" value="green" checked>
+            Verde
+          </label>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="chartLabels">Etiquetas (separadas por comas)</label>
+        <input type="text" id="chartLabels"
+          value="Red,Blue,Yellow,Green,Purple,Orange">
+      </div>
+
+      <div class="campo">
+        <label for="chartValues">Valores (separados por comas)</label>
+        <input type="text" id="chartValues"
+          value="12,19,3,5,2,3">
+      </div>
+
+      <button type="button" id="updateChart">
+        Actualizar gráfico
+      </button>
+
+    </form>
+
+    <div class="grafico">
+      <h3 id="graphicTitle">Número de votos</h3>
+
+      <div class="canvas-container">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
